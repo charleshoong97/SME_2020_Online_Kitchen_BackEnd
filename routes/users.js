@@ -20,10 +20,9 @@ router.post('/signup', async function(req, res) {
 
 //login
 router.get('/login', function(req, res) {
-  let data = req.body
+  let data = req.query
   User.findOne({"email": data.email,"password":data.password})
-  .then(user => {
-    res.json(user)})
+  .then(user => res.json(user))
   .catch(err => res.status(400).json('Error: ' + err));
 });
 

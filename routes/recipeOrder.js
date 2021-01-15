@@ -45,7 +45,7 @@ router.put('/update-recipe-order', async function(req, res) {
 
   //get-by-userId
   router.get('/get-recipe-order-by-userid',function(req,res){
-    RecipeOrder.find({"user_id":new ObjectId(req.body.user_id)})
+    RecipeOrder.find({"user_id":new ObjectId(req.query.user_id)})
     .then(result=>res.json(result))
     .catch(err => res.status(400).json('Error: ' + err))
 })
