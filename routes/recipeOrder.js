@@ -36,5 +36,18 @@ router.put('/update-recipe-order', async function(req, res) {
   });
   
 
+  //get-all
+  router.get('/get-all-recipe-order',function(req,res){
+      RecipeOrder.find({})
+      .then(result=>res.json(result))
+      .catch(err => res.status(400).json('Error: ' + err))
+  })
+
+  //get-by-userId
+  router.get('/get-recipe-order-by-userid',function(req,res){
+    RecipeOrder.find({"user_id":new ObjectId(req.body.user_id)})
+    .then(result=>res.json(result))
+    .catch(err => res.status(400).json('Error: ' + err))
+})
 
 module.exports = router;
