@@ -11,6 +11,14 @@ const recepiOrderSchema = new mongoose.Schema(
             type: String,
             required:true
         },
+        recipe:{
+            type: String,
+            required:true
+        },
+        price:{
+            type: String,
+            required:true
+        },
         status: {
             type:String,
             required: true,
